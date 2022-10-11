@@ -18,7 +18,6 @@ namespace Result132
                 .Where(w => w.Length >= 1)
                 .GroupBy(w => w)
                 .OrderByDescending(g => g.Count());
-            
 
 
             var i = 0;
@@ -30,7 +29,6 @@ namespace Result132
                 i++;
 
                 if (i == 10) break;
-                
             }
         }
     }
