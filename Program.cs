@@ -16,7 +16,7 @@ namespace Result132
 
             var words = noPunctuationText
                 .Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                .Where(w => w.Length >= 3)
+                .Where(w => w.Length >= 1)
                 .GroupBy(w => w)
                 .OrderByDescending(g => g.Count());
 
