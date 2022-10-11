@@ -4,23 +4,24 @@ using System.Linq;
 
 namespace Result132
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            string path = "D:\\task13\\Text.txt";
+            const string path = "D:\\task13\\Text.txt";
 
-            string text = File.ReadAllText(path);
+            var text = File.ReadAllText(path);
 
-            string noPunctuationText = new string(text.Where(c => !char.IsPunctuation(c)).ToArray());
-
+            var noPunctuationText = new string(text.Where(c => !char.IsPunctuation(c)).ToArray());
             var words = noPunctuationText
                 .Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                 .Where(w => w.Length >= 1)
                 .GroupBy(w => w)
                 .OrderByDescending(g => g.Count());
+            
 
-            int i = 0;
+
+            var i = 0;
 
             foreach (var word in words)
             {
@@ -28,10 +29,8 @@ namespace Result132
 
                 i++;
 
-                if (i == 10)
-                {
-                    break;
-                }
+                if (i == 10) break;
+                
             }
         }
     }
